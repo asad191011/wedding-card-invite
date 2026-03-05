@@ -128,14 +128,14 @@ export function Invitation() {
 
         <div className="font-serif text-stone-800 space-y-2">
           <p className="text-2xl font-bold text-stone-900 tracking-wide">
-            Saturday, June 15th, 2026
+            Monday, October 26th, 2026
           </p>
           <p className="text-stone-600 text-lg">
-            at four o'clock in the afternoon
+            at seven o'clock in the evening
           </p>
           <div className="mt-6">
-            <p className="text-xl font-semibold tracking-wide text-stone-900">The Grand Estate Gardens</p>
-            <p className="text-stone-600">New York, NY</p>
+            <p className="text-xl font-semibold tracking-wide text-stone-900">E-11 Monal Marque</p>
+            <p className="text-stone-600">Islamabad, ISB</p>
           </div>
         </div>
 

@@ -3,9 +3,18 @@ import { motion } from "motion/react";
 interface WaxSealProps {
   onClick: () => void;
   isCracking: boolean;
+  color?: string;
+  borderColor?: string;
+  innerColor?: string;
 }
 
-export function WaxSeal({ onClick, isCracking }: WaxSealProps) {
+export function WaxSeal({ 
+  onClick, 
+  isCracking, 
+  color = "#8B1D1D", 
+  borderColor = "#681212",
+  innerColor = "#7a1818"
+}: WaxSealProps) {
   return (
     <motion.button
       onClick={onClick}
@@ -21,7 +30,10 @@ export function WaxSeal({ onClick, isCracking }: WaxSealProps) {
       transition={{ delay: 0.5 }}
     >
       {/* Irregular wax shape with texture */}
-      <div className="w-28 h-28 bg-[#8B1D1D] rounded-full flex items-center justify-center shadow-xl relative overflow-hidden border-4 border-[#681212]">
+      <div 
+        className="w-28 h-28 rounded-full flex items-center justify-center shadow-xl relative overflow-hidden border-4"
+        style={{ backgroundColor: color, borderColor: borderColor }}
+      >
         
         {/* Texture Filter */}
         <svg className="absolute inset-0 w-full h-full opacity-40 pointer-events-none">
@@ -38,9 +50,12 @@ export function WaxSeal({ onClick, isCracking }: WaxSealProps) {
         </svg>
 
         {/* Inner ring (Stamped impression) */}
-        <div className="w-20 h-20 border-[3px] border-[#5c1010]/60 rounded-full absolute flex items-center justify-center shadow-inner bg-[#7a1818]">
+        <div 
+          className="w-20 h-20 border-[3px] rounded-full absolute flex items-center justify-center shadow-inner"
+          style={{ borderColor: `${borderColor}99`, backgroundColor: innerColor }}
+        >
             {/* Floral/Decorative Stamp Design */}
-            <svg viewBox="0 0 100 100" className="w-14 h-14 opacity-60 fill-[#4a0b0b]">
+            <svg viewBox="0 0 100 100" className="w-14 h-14 opacity-60" style={{ fill: "#4a0b0b" }}>
                 <path d="M50 20 C50 20 60 35 70 35 C80 35 85 25 85 25 C85 25 80 45 90 50 C100 55 95 65 95 65 C95 65 75 60 70 70 C65 80 75 90 75 90 C75 90 60 80 50 85 C40 80 25 90 25 90 C25 90 35 80 30 70 C25 60 5 65 5 65 C5 65 0 55 10 50 C20 45 15 25 15 25 C15 25 20 35 30 35 C40 35 50 20 50 20 Z" />
                 <circle cx="50" cy="50" r="15" fill="none" stroke="#4a0b0b" strokeWidth="2" />
                 <text x="50" y="58" fontSize="24" fontFamily="serif" textAnchor="middle" fill="#4a0b0b" fontWeight="bold">A&A</text>
@@ -86,7 +101,7 @@ export function WaxSeal({ onClick, isCracking }: WaxSealProps) {
       </div>
       
       {/* Melted drips - more organic */}
-      <svg className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-16 h-8 text-[#8B1D1D] -z-10 filter drop-shadow-md" viewBox="0 0 100 50">
+      <svg className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-16 h-8 -z-10 filter drop-shadow-md" style={{ color: color }} viewBox="0 0 100 50">
          <path d="M20 0 Q30 20 40 10 T60 25 T80 5" fill="currentColor" />
          <circle cx="30" cy="15" r="5" fill="currentColor" />
          <circle cx="65" cy="20" r="7" fill="currentColor" />
